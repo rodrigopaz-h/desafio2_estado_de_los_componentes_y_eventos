@@ -1,36 +1,35 @@
-import React, { useState } from 'react';
-import './App.css';
-import { Registro } from './components/Registro';
+import React, { useState } from "react";
+import "./App.css";
+import { Registro } from "./components/Registro";
 
 function App() {
-  const [formErrors, setFormErrors] = useState('');
+  const [formErrors, setFormErrors] = useState({ text: "", color: "" });
 
-  const [form, setForm] = useState({nombre: '', email: '', contraseña: '', confirmacionContraseña: ''
-	});
-  
+  const [form, setForm] = useState({
+    nombre: "",
+    email: "",
+    contraseña: "",
+    confirmacionContraseña: "",
+  });
+
   const onChange = (event) => {
     const { name, value } = event.target;
 
     setForm({
-			...form,
-			[name]: value,
-		});
+      ...form,
+      [name]: value,
+    });
   };
 
-  const handleErrors = (error) => {
-    setFormErrors(error);
+  const handleErrors = ({text, color}) => {
+    setFormErrors({ text, color });
   };
 
   return (
     <>
-      <Registro
-        onChange={onChange}
-        handleErrors={handleErrors}
-        formErrors={formErrors}
-      />
+      <Registro onChange={onChange} handleErrors={handleErrors} formErrors={formErrors} />
     </>
   );
 }
 
 export default App;
-
