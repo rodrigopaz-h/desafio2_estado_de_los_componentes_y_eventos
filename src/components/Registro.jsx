@@ -14,8 +14,8 @@ export const Registro = ({ onChange, handleErrors, formErrors }) => {
       <p>o usa tu email para registrarte</p>
       <Formulario onChange={onChange} handleErrors={handleErrors} formErrors={formErrors} />
       <Alerta
-				formErrors={formErrors}
-				color={formErrors === 'Registro exitoso' ? 'success' : 'danger'}
+				text={formErrors.text}
+				color={formErrors.color}
 			/>
     </div>
     
@@ -25,5 +25,5 @@ export const Registro = ({ onChange, handleErrors, formErrors }) => {
 Registro.propTypes = {
   onChange: PropTypes.func,
   handleErrors: PropTypes.func,
-  formErrors: PropTypes.string,
+  formErrors: PropTypes.object,
 };
